@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\frontend\FrontendShop;
 use Illuminate\Http\Request;
 
 class shopController extends Controller
@@ -12,7 +13,7 @@ class shopController extends Controller
      */
     public function index()
     {
-        return view('frontend.shop');
+        return view('frontend.shop',['product'=>FrontendShop::get()]);
     }
 
     /**

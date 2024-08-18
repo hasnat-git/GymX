@@ -16,12 +16,12 @@
                      </div>
                      <div class="eg-breadcrumb__content">
                         <h2 class="title"> Shop Details</h2>
-                        <nav aria-label="breadcrumb">
+                        {{-- <nav aria-label="breadcrumb">
                            <ol class="eg-breadcrumb__list">
                               <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                               <li class="eg-breadcrumb__item active" aria-current="page">Shop Details</li>
                            </ol>
-                        </nav>
+                        </nav> --}}
                      </div>
                   </div>
                </div>
@@ -52,16 +52,16 @@
                         <div class="eg-product-details__thumb-content w-img">
                             <div class="tab-content" id="nav-tabContent">
                               <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
-                                 <img src="assets/img/product/details/big/product-details-big-1.jpg" alt="">
+                                 <img src="/backend/images/products/{{$product->image}}" alt=""  height="500px">
                               </div>
                               <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
-                                 <img src="assets/img/product/details/big/product-details-big-2.jpg" alt="">
+                                 <img src="assets/img/product/details/big/product-details-big-2.jpg" alt=""  height="500px">
                               </div>
                               <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
-                                 <img src="assets/img/product/details/big/product-details-big-3.jpg" alt="">
+                                 <img src="assets/img/product/details/big/product-details-big-3.jpg" alt=""  height="500px">
                               </div>
                               <div class="tab-pane fade" id="nav-four" role="tabpanel" aria-labelledby="nav-four-tab">
-                                 <img src="assets/img/product/details/big/product-details-big-4.jpg" alt="">
+                                 <img src="assets/img/product/details/big/product-details-big-4.jpg" alt=""  height="500px">
                               </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                            <nav>
                               <div class="nav nav-tabs d-flex justify-content-between" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-one-tab" data-bs-toggle="tab" data-bs-target="#nav-one" type="button" role="tab" aria-controls="nav-one" aria-selected="true">
-                                 <img src="assets/img/product/details/sm/product-details-sm-1.jpg" alt="">
+                                 <img src="/backend/images/products/{{$product->image}}" alt="">
                                 </button>
                                 <button class="nav-link" id="nav-two-tab" data-bs-toggle="tab" data-bs-target="#nav-two" type="button" role="tab" aria-controls="nav-two" aria-selected="false">
                                  <img src="assets/img/product/details/sm/product-details-sm-2.jpg" alt="">
@@ -88,8 +88,8 @@
                   <div class="col-lg-6">
                      <div class="eg-product-details__wrapper">
                         <div class="eg-product-details__content">
-                           <h3 class="eg-product-details__title">PROTEIN POWDER 2KG</h3>
-                           <div class="eg-product-details__stock d-flex align-items-center mt-20 mb-20">
+                           <h3 class="eg-product-details__title">{{$product->title  }}</h3>
+                           {{-- <div class="eg-product-details__stock d-flex align-items-center mt-20 mb-20">
                               <button class="stock mr-15">in stock</button>
                               <div class="eg-product-details__rating">
                                  <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
@@ -99,10 +99,10 @@
                                  <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
                                  <span class="eg-product-details__rating-count ml-5">(38)</span>
                               </div>
-                           </div>
-                           <p>Supex food is food produced by methods complying with the standards of Rrganic farming. Standards vary Lorem ipsum do...<a class="see-more" href="#">see more</a></p>
+                           </div> --}}
+                           <p>{{ $product->details }}<a class="see-more" href="#"></a></p>
                            <div class="eg-product-details__price mt-30">
-                              <h4 class="eg-product-details__ammount"><del class="old-ammount">$210.00</del> $110.00</h4>
+                              <h4 class="eg-product-details__ammount"> ${{ $product->price }}</h4>
                            </div>
                         </div>
                         <div class="eg-product-details__quantity d-flex align-items-center mb-30 mt-30">
@@ -117,17 +117,17 @@
                            </div>
                         </div>
                         <div class="eg-product-details__bottom mb-30">
-                           <div class="eg-product-details__sku">
+                           {{-- <div class="eg-product-details__sku">
                               <b>sku :</b><span>QZX8VGA</span>
-                           </div>
+                           </div> --}}
                            <div class="eg-product-details__categories">
-                              <b>Categories :</b>
-                              <span><a href="#">Nutrition</a></span>
+                              <b>Categories:</b>
+                              <span><a href="#">{{ $product->category }} </a></span>
                            </div>
                            <div class="eg-product-details__tags">
                               <b>Tags :</b>
-                              <a href="#">Food,</a>
-                              <a href="#">Organic</a>
+                              <a href="#">{{ $product->tag }}</a>
+
                            </div>
                         </div>
                         <div class="eg-product-details__socials d-flex align-items-center">
@@ -297,7 +297,7 @@
          <!-- product-single-end -->
 
           <!-- product area -->
-          <section class="product__area eg-product__bg fix">
+          {{-- <section class="product__area eg-product__bg fix">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -403,7 +403,7 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> --}}
          <!-- product area end -->
 
       </main>

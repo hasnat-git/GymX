@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\backend\Product;
+use App\Models\frontend\FrontendShop;
 use Illuminate\Http\Request;
 
 class shop_detailsController extends Controller
@@ -10,9 +12,10 @@ class shop_detailsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return view('frontend.shop-details');
+        $product = FrontendShop::where('id', $id)->first();
+        return view('frontend.shop-details',['product' => $product]);
     }
 
     /**

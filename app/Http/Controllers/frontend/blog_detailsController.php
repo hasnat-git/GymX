@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\frontend\FrontendBlog;
 use Illuminate\Http\Request;
 
 class blog_detailsController extends Controller
@@ -11,9 +11,10 @@ class blog_detailsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return view('frontend.blog-details');
+        $blog = FrontendBlog::where('id', $id)->first();
+        return view('frontend.blog-details',['blog' => $blog]);
     }
 
     /**

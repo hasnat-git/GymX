@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Home')
+@section('title', 'Cart')
 @section('main-container')
       <!-- header area end -->
 
@@ -18,12 +18,12 @@
                         </div>
                         <div class="eg-breadcrumb__content">
                            <h2 class="title"> Cart</h2>
-                           <nav aria-label="breadcrumb">
+                           {{-- <nav aria-label="breadcrumb">
                               <ol class="eg-breadcrumb__list">
                                  <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                                  <li class="eg-breadcrumb__item active" aria-current="page">Cart</li>
                               </ol>
-                           </nav>
+                           </nav> --}}
                         </div>
                      </div>
                   </div>
@@ -66,7 +66,7 @@
                                    <tr>
                                        <td class="eg-cart__meta d-flex align-items-center">
                                           <div class="eg-cart__meta-img">
-                                             <img src="assets/img/product/cart/cart-01.png" alt="supex">
+                                             <img src="assets/img/product/cart/cart-01.png" alt="GymX">
                                           </div>
                                           <h3 class="eg-cart__meta-title"><a href="product-details.html">PRO RULE OQ 01</a></h3>
                                        </td>
@@ -90,7 +90,7 @@
                                    <tr>
                                        <td class="eg-cart__meta d-flex align-items-center">
                                           <div class="eg-cart__meta-img">
-                                             <img src="assets/img/product/cart/cart-02.png" alt="supex">
+                                             <img src="assets/img/product/cart/cart-02.png" alt="GymX">
                                           </div>
                                           <h3 class="eg-cart__meta-title"><a href="product-details.html">RULE YELLOW PROTIEN</a></h3>
                                        </td>
@@ -114,7 +114,7 @@
                                    <tr>
                                        <td class="eg-cart__meta d-flex align-items-center">
                                           <div class="eg-cart__meta-img">
-                                             <img src="assets/img/product/cart/cart-03.png" alt="supex">
+                                             <img src="assets/img/product/cart/cart-03.png" alt="GymX">
                                           </div>
                                           <h3 class="eg-cart__meta-title"><a href="product-details.html">Protein Powder 2kg</a></h3>
                                        </td>

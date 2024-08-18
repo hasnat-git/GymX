@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Home')
+@section('title', 'Blog')
 @section('main-container')
       <!-- header area end -->
 
@@ -18,12 +18,12 @@
                         </div>
                         <div class="eg-breadcrumb__content">
                            <h2 class="title">Single Blog</h2>
-                           <nav aria-label="breadcrumb">
+                           {{-- <nav aria-label="breadcrumb">
                               <ol class="eg-breadcrumb__list">
                                  <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                                  <li class="eg-breadcrumb__item active" aria-current="page">Blog Details</li>
                               </ol>
-                           </nav>
+                           </nav> --}}
                         </div>
                      </div>
                   </div>
@@ -52,36 +52,36 @@
                <div class="col-lg-10">
                   <div class="eg-postbox__main-wrapper">
                      <div class="eg-postbox__wrapper mb-60">
+
+
                         <article class="eg-postbox__item">
                            <div class="eg-postbox__thumb w-img">
-                              <img src="assets/img/blog/blog-details-01.png" alt="img">
+                              <img src="/backend/images/blog_posts/{{$blog->blog_image}}" alt="img">
                            </div>
                            <div class="eg-postbox__details">
                               <div class="eg-postbox__meta meta-2 mb-15">
                                  <span>
-                                    <img src="assets/img/blog/blog-meta.png" alt="img">Kathryn Murphy
+                                    <img src="/backend/images/blog_authors/{{$blog->author_image}}" width="40px" height="40px" alt="img">{{ $blog->author}}
                                  </span>
                                  <span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="current" xmlns="http://www.w3.org/2000/svg">
                                        <path d="M11.75 2.25H14.75C14.9489 2.25 15.1397 2.32902 15.2803 2.46967C15.421 2.61032 15.5 2.80109 15.5 3V15C15.5 15.1989 15.421 15.3897 15.2803 15.5303C15.1397 15.671 14.9489 15.75 14.75 15.75H1.25C1.05109 15.75 0.860322 15.671 0.71967 15.5303C0.579018 15.3897 0.5 15.1989 0.5 15V3C0.5 2.80109 0.579018 2.61032 0.71967 2.46967C0.860322 2.32902 1.05109 2.25 1.25 2.25H4.25V0.75H5.75V2.25H10.25V0.75H11.75V2.25ZM14 8.25H2V14.25H14V8.25ZM10.25 3.75H5.75V5.25H4.25V3.75H2V6.75H14V3.75H11.75V5.25H10.25V3.75ZM3.5 9.75H5V11.25H3.5V9.75ZM7.25 9.75H8.75V11.25H7.25V9.75ZM11 9.75H12.5V11.25H11V9.75Z" fill="current"/>
-                                    </svg> Dec 28, 2022
+                                    </svg> {{ $blog->updated_on}}
                                  </span>
-                                 <span>
+                                 {{-- <span>
                                     <svg width="18" height="16" viewBox="0 0 18 16" fill="current" xmlns="http://www.w3.org/2000/svg">
                                        <path d="M10.5 15.875L8.4 13.25H4.5C4.30109 13.25 4.11032 13.171 3.96967 13.0303C3.82902 12.8897 3.75 12.6989 3.75 12.5V4.32725C3.75 4.12834 3.82902 3.93757 3.96967 3.79692C4.11032 3.65627 4.30109 3.57725 4.5 3.57725H16.5C16.6989 3.57725 16.8897 3.65627 17.0303 3.79692C17.171 3.93757 17.25 4.12834 17.25 4.32725V12.5C17.25 12.6989 17.171 12.8897 17.0303 13.0303C16.8897 13.171 16.6989 13.25 16.5 13.25H12.6L10.5 15.875ZM11.8792 11.75H15.75V5.07725H5.25V11.75H9.12075L10.5 13.4735L11.8792 11.75ZM1.5 0.5H14.25V2H2.25V10.25H0.75V1.25C0.75 1.05109 0.829018 0.860322 0.96967 0.71967C1.11032 0.579018 1.30109 0.5 1.5 0.5V0.5Z" fill="current"/>
                                     </svg> (04) Comments
-                                 </span>
-                                 <span>
+                                 </span> --}}
+                                 {{-- <span>
                                     <svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                        <path d="M9.5 2.5C9.15625 2.53125 8.8125 2.5625 8.5 2.65625C8.65625 2.90625 8.71875 3.21875 8.75 3.5C8.75 4.46875 7.9375 5.25 7 5.25C6.6875 5.25 6.375 5.1875 6.15625 5.03125C6.0625 5.34375 6 5.65625 6 6C6 7.9375 7.5625 9.5 9.5 9.5C11.4375 9.5 13 7.9375 13 6C13 4.09375 11.4375 2.53125 9.5 2.53125V2.5ZM18.375 5.5625C16.6875 2.25 13.3125 0 9.5 0C5.65625 0 2.28125 2.25 0.59375 5.5625C0.53125 5.6875 0.5 5.84375 0.5 6C0.5 6.1875 0.53125 6.34375 0.59375 6.46875C2.28125 9.78125 5.65625 12 9.5 12C13.3125 12 16.6875 9.78125 18.375 6.46875C18.4375 6.34375 18.4688 6.1875 18.4688 6.03125C18.4688 5.84375 18.4375 5.6875 18.375 5.5625ZM9.5 10.5C6.40625 10.5 3.5625 8.78125 2.0625 6C3.5625 3.21875 6.40625 1.5 9.5 1.5C12.5625 1.5 15.4062 3.21875 16.9062 6C15.4062 8.78125 12.5625 10.5 9.5 10.5Z" fill="current" />
                                     </svg> 1,526 Viewers
-                                 </span>
+                                 </span> --}}
                               </div>
-                              <h3 class="eg-postbox__title mb-50"> Discover the Power of XYZ Supplement: Unlock Your Full Potential</h3>
+                              <h3 class="eg-postbox__title mb-50">  {{ $blog->title}}</h3>
                               <div class="eg-postbox__post-text">
-                                 <p> Designers should also focus on developing skills in areas such as user experience, user interface design, and data analysis, as these are becoming increasingly important in today's digital world. Additionally, designers should have a strong understanding of human psychology and behavior to create designs that are not users. </p>
-                                 <p> Moreover, designers should embrace sustainability and ethical design practices, as the world is becoming increasingly conscious of environmental and social issues. They should strive to create designs that are environmentally friendly, socially responsible, and inclusive of all individuals. </p>
-                                 <p> In summary, designers can prepare for the future by being adaptable, continuously learning, developing new skills, understanding human psychology, and embracing sustainability and ethical design practices</p>
+                                 <p> {{ $blog->details}} </p>
                               </div>
                               <div class="eg-postbox__quote text-center mt-65">
                                  <blockquote>
@@ -98,7 +98,7 @@
                         </article>
                      </div>
                      <div class="eg-postbox__wrapper mb-60">
-                        <article class="eg-postbox__item">
+                        {{-- <article class="eg-postbox__item">
                            <div class="eg-postbox__thumb">
                               <div class="row">
                                  <div class="col-md-6">
@@ -218,7 +218,7 @@
                                  </div>
                               </div>
                            </div>
-                        </article>
+                        </article> --}}
                      </div>
                   </div>
                   <div class="eg-postbox__comment">
@@ -327,4 +327,108 @@
    </main>
 
    <!-- footer area -->
-   @endsection
+      <footer class="scene fix">
+         <div class="eg-newsletter__bg">
+            <div class="container">
+               <div class="eg-newsletter__wrap">
+                  <div class="row align-items-center">
+                     <div class="col-lg-6">
+                        <div class="eg-newsletter__content">
+                           <h4 class="eg-newsletter__title">Subscribe Newsletters</h4>
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="eg-newsletter__form">
+                           <form action="#">
+                              <input type="email" placeholder="Enter your email">
+                              <button class="eg-btn">Subcribe Now</button>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="eg-footer__bg theme-bg">
+            <div class="eg-footer__main">
+               <div class="container">
+                  <div class="row align-items-center">
+                     <div class="offset-lg-1 col-lg-4">
+                        <div class="eg-footer__widget mb-35">
+                           <div class="eg-footer__widget_link eg-line">
+                              <a href="shop.html">product</a>
+                              <a href="#">Pricing Plan</a>
+                              <a href="contact.html">Contact</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-2">
+                        <div class="eg-footer__widget text-center mb-35">
+                           <div class="eg-footer__widget_logo">
+                              <a href="index-2.html"><img src="assets/img/logo/logo.png" alt="logo"></a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <div class="eg-footer__widget text-lg-end mb-35">
+                           <div class="eg-footer__widget_social">
+                              <a href="#"><i class="fab fa-facebook-square"></i></a>
+                              <a href="#"><i class="fab fa-twitter"></i></a>
+                              <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                              <a href="#"><i class="fab fa-youtube"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="eg-footer__bottom">
+               <div class="container">
+                  <div class="eg-footer__bottom_border">
+                     <div class="row">
+                        <div class="offset-lg-1 col-lg-5">
+                           <div class="eg-footer__copyright mb-30">
+                              <span>© Copyrights, 2023 <a href="https://themeforest.net/user/eaglesthemes" target="_blank">EaglesThemes</a>. All Right Recived</span>
+                           </div>
+                        </div>
+                        <div class="col-lg-5">
+                           <div class="eg-footer__terms eg-line text-lg-end mb-30">
+                              <a href="#">Terms of Service</a>
+                              <a href="#">Privacy Policy</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <h4 class="eg-footer__opacity-text d-none d-lg-block">Stay With Us</h4>
+            <div class="eg-footer__shape-1">
+               <img class="layer" data-depth="0.3" src="assets/img/shape/footer-shape-02.png" alt="footer-shape">
+            </div>
+            <div class="eg-footer__shape-2 scene-y">
+               <img class="layer" data-depth="3" src="assets/img/shape/footer-shape-03.png" alt="footer-shape">
+            </div>
+         </div>
+      </footer>
+   <!-- footer-area-end -->
+
+   <!-- JS here -->
+      <script src="assets/js/vendor/jquery.js"></script>
+      <script src="assets/js/vendor/waypoints.js"></script>
+      <script src="assets/js/bootstrap-bundle.js"></script>
+      <script src="assets/js/swiper-bundle.js"></script>
+      <script src="assets/js/magnific-popup.js"></script>
+      <script src="assets/js/nice-select.js"></script>
+      <script src="assets/js/odometer.min.js"></script>
+      <script src="assets/js/jquery.appear.js"></script>
+      <script src="assets/js/jquery.odometer.min.js"></script>
+      <script src="assets/js/range-slider.js"></script>
+      <script src="assets/js/wow.js"></script>
+      <script src="assets/js/parallax.js"></script>
+      <script src="assets/js/ajax-form.js"></script>
+      <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+@endsection

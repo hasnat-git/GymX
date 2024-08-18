@@ -18,12 +18,12 @@
                         </div>
                         <div class="eg-breadcrumb__content">
                            <h2 class="title"> Login</h2>
-                           <nav aria-label="breadcrumb">
+                           {{-- <nav aria-label="breadcrumb">
                               <ol class="eg-breadcrumb__list">
                                  <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                                  <li class="eg-breadcrumb__item active" aria-current="page">Login</li>
                               </ol>
-                           </nav>
+                           </nav> --}}
                         </div>
                      </div>
                   </div>
@@ -52,7 +52,7 @@
                   <div class="col-xl-6 col-lg-8">
                      <div class="eg-login__wrapper">
                         <div class="eg-login__top text-center mb-30">
-                           <h3 class="eg-login__title">Login to Supex.</h3>
+                           <h3 class="eg-login__title">Login to GymX.</h3>
                            <p>Don’t have an account? <span><a href="register.html">Create a free account</a></span></p>
                         </div>
                         <div class="eg-login__option">
@@ -60,7 +60,7 @@
                               <div class="eg-login__input-box">
                                  <div class="eg-login__input">
                                     <label for="email">Your Email</label>
-                                    <input id="email" type="email" placeholder="supex@mail.com">
+                                    <input id="email" type="email" placeholder="GymX@mail.com">
                                  </div>
                               </div>
                               <div class="eg-login__input-box">

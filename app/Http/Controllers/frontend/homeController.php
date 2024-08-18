@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\frontend\FrontendBlog;
+use App\Models\frontend\FrontendFaq;
+use App\Models\frontend\FrontendShop;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
@@ -12,7 +15,7 @@ class homeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend.index',['product'=>FrontendShop::get(), 'faq'=>FrontendFaq::get(),'blog'=>FrontendBlog::get()]);
     }
 
     /**

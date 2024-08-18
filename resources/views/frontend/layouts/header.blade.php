@@ -4,7 +4,7 @@
 <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Supex - Health Supplement HTML Template</title>
+      <title>@yield('title') | {{ config('app.name') }}</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -59,7 +59,7 @@
                            <div class="row align-items-centers justify-content-between">
                               <div class="col-lg-2 d-flex align-items-center">
                                  <div class="eg-menu__logo">
-                                    <a href="/"><img src="assets/img/logo/logo-2.png" alt="logo"></a>
+                                    <a href="/"><img src="assets/img/logo/logo5.png" alt="logo"></a>
                                  </div>
                               </div>
                               <div class="col-lg-6 d-flex align-items-centers">
@@ -75,7 +75,7 @@
                                           </a>
 
                                        </li>
-                                       <li class="eg-menu__has-children">
+                                       {{-- <li class="eg-menu__has-children">
                                           <a href="/shop">Shop
                                              <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" x="0" y="0" viewBox="0 0 24 24" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
@@ -84,29 +84,32 @@
                                              </span>
                                           </a>
                                           <ul class="sub-menu">
-                                             <li><a href="/shop">Our Shop</a></li>
+
                                              <li><a href="/shop-details">Shop Details</a></li>
-                                             <li><a href="/cart">Cart</a></li>
-                                             <li><a href="/checkout">Checkout</a></li>
-                                             <li><a href="/login">Login</a></li>
-                                             <li><a href="/register">Register</a></li>
+                                             <li><a href="/cart"></a></li>
+
+
                                              <li><a href="/forgot">Reset Password</a></li>
 
                                           </ul>
-                                       </li>
-                                       <li><a href="/ingredients">Ingredients</a></li>
+                                       </li> --}}
+                                       <li><a href="/checkout">Checkout</a></li>
+
+
+                                       <li><a href="/shop">Our Shop</a></li>
+                                       <li><a href="/cart">Cart</a></li>
                                        <li class="eg-menu__has-children">
-                                          <a href="blog.html">Blog & Article
+                                          <a href="/blog">Blog
                                              <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" x="0" y="0" viewBox="0 0 24 24" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
+                                                {{-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" x="0" y="0" viewBox="0 0 24 24" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                                                    <g> <path fill="current" d="M5.97 8.47a.75.75 0 0 1 1.06 0l5.47 5.47 5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 0-1.06z" data-original="current"></path> </g>
-                                                </svg>
+                                                </svg> --}}
                                              </span>
                                           </a>
-                                          <ul class="sub-menu">
+                                          {{-- <ul class="sub-menu">
                                              <li><a href="/blog">Our Blog</a></li>
                                              <li><a href="/blog-details">Blog Details</a></li>
-                                          </ul>
+                                          </ul> --}}
                                        </li>
                                        <li class="eg-menu__header-btn"> <a href="/contact">Get in touch</a></li>
                                     </ul>
@@ -220,7 +223,7 @@
                            </div>
                            <div class="eg-header__offCanvas-contact">
                               <h4 class="number mb-5"> <a href="tel:15991624545">+1 599 162 4545</a></h4>
-                              <h4 class="email mb-20"> <a href="mailto:supex@gmail.com">supex@gmail.com</a></h4>
+                              <h4 class="email mb-20"> <a href="mailto:GymX@gmail.com">GymX@gmail.com</a></h4>
                               <p> 5689 Lotaso Terrace, Culver City, <br> United States</p>
                               <div class="eg-header__offCanvas-social mt-20">
                                  <a href="#"><i class="fab fa-facebook-f"></i></a>

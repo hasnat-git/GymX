@@ -20,9 +20,9 @@
                            <div class="eg-banner__thumb-3"><img class="layer" data-depth="0.2" src="assets/img/banner/banner-img-3.png" alt="banner-thumb"></div>
                         </div>
                         <div class="eg-banner__content">
-                           <h3 class="title">supex Increase your Energy</h3>
+                           <h3 class="title">Gymx Increase your Energy</h3>
                            <div class="eg-banner__btn">
-                              <a class="eg-btn" href="ingredient.html">Featured Ingredients<span><i class="fa-solid fa-chevron-right"></i></span>
+                              <a class="eg-btn" href="/shop">Shop Now<span><i class="fa-solid fa-chevron-right"></i></span>
                               </a>
                            </div>
                         </div>
@@ -130,8 +130,8 @@
                         </div>
                         <span>Our supplements are meticulously formulated with a focus on quality, efficacy, and innovation.</span>
                         <div class="eg-about__btn">
-                           <a class="eg-btn" href="#">Shop Now <span><i class="fa-solid fa-chevron-right"></i></span></a>
-                           <a class="eg-btn about-btn" href="#">Contact Us <span><i class="fa-solid fa-chevron-right"></i></span></a>
+                           <a class="eg-btn" href="/shop">Shop Now <span><i class="fa-solid fa-chevron-right"></i></span></a>
+                           <a class="eg-btn about-btn" href="/contact">Contact Us <span><i class="fa-solid fa-chevron-right"></i></span></a>
                         </div>
                      </div>
                   </div>
@@ -157,24 +157,19 @@
                   </div>
                </div>
             </div>
+
             <div class="container-fluid">
                <div class="swiper-container eg-product__active">
                   <div class="swiper-wrapper">
+                    @foreach ($product as $product)
                      <div class="swiper-slide eg-product__item text-center mb-50 mt-50">
                         <div class="eg-product__thumb">
-                           <a href="shop-details.html"><img src="assets/img/product/product-1.png" alt="product-thumb"></a>
+                           <a href="/shop-details{{$product->id}}"><img src="/backend/images/products/{{$product->image}}" height="200px" alt="product-thumb"></a>
                         </div>
                         <div class="eg-product__content">
-                           <h4 class="eg-product__title"><a href="shop.html">Protein Powder 2kg</a></h4>
-                           <span class="eg-product__price">$110.99</span>
-                           <div class="eg-product__rating">
-                              <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                              <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                              <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                              <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                              <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                              <span class="eg-product__rating-count">(38)</span>
-                           </div>
+                           <h4 class="eg-product__title"><a href="shop.html">{{ $product->title }}</a></h4>
+                           <span class="eg-product__price">${{ $product->price }}</span>
+
                            <div class="eg-product__btn d-flex align-items-center justify-content-center">
                               <a href="cart.html" class="eg-product__cart mr-15">
                                  <span><img src="assets/img/icon/cart.svg" alt=""></span>
@@ -183,6 +178,9 @@
                            </div>
                         </div>
                      </div>
+                     @endforeach
+
+{{--
                      <div class="swiper-slide eg-product__item text-center mb-50 mt-50">
                         <div class="eg-product__thumb">
                            <a href="shop-details.html"><img src="assets/img/product/product-2.png" alt="product-thumb"></a>
@@ -297,9 +295,16 @@
                               <a class="eg-btn" href="#">Buy Now</a>
                            </div>
                         </div>
-                     </div>
+                     </div> --}}
                   </div>
                   <div class="eg-product__arrow">
+                    <div class="eg-product__prev">
+                        <span>
+                           <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1.04083 7.18205C0.650309 7.57258 0.650309 8.20574 1.04083 8.59627L7.40479 14.9602C7.79532 15.3508 8.42848 15.3508 8.81901 14.9602C9.20953 14.5697 9.20953 13.9365 8.81901 13.546L3.16215 7.88916L8.81901 2.23231C9.20953 1.84178 9.20953 1.20862 8.81901 0.818092C8.42848 0.427568 7.79532 0.427568 7.40479 0.818092L1.04083 7.18205ZM21.5183 6.88916L1.74794 6.88916V8.88916L21.5183 8.88916V6.88916Z" fill="currentColor"/>
+                           </svg>
+                        </span>
+                     </div>
                      <div class="eg-product__next">
                         <span>
                            <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -307,13 +312,7 @@
                            </svg>
                         </span>
                      </div>
-                     <div class="eg-product__prev">
-                        <span>
-                           <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M1.04083 7.18205C0.650309 7.57258 0.650309 8.20574 1.04083 8.59627L7.40479 14.9602C7.79532 15.3508 8.42848 15.3508 8.81901 14.9602C9.20953 14.5697 9.20953 13.9365 8.81901 13.546L3.16215 7.88916L8.81901 2.23231C9.20953 1.84178 9.20953 1.20862 8.81901 0.818092C8.42848 0.427568 7.79532 0.427568 7.40479 0.818092L1.04083 7.18205ZM21.5183 6.88916L1.74794 6.88916V8.88916L21.5183 8.88916V6.88916Z" fill="currentColor"/>
-                           </svg>
-                        </span>
-                     </div>
+
                   </div>
                </div>
             </div>
@@ -443,7 +442,7 @@
          <!-- feature area end -->
 
          <!-- pricing area -->
-         <section class="pricing__area eg-pricing__bg scene">
+         {{-- <section class="pricing__area eg-pricing__bg scene">
             <div class="container">
                <div class="row">
                   <div class="col-lg-12">
@@ -545,7 +544,7 @@
                   </div>
                </div>
             </div>
-         </section>
+         </section> --}}
          <!-- pricing area end -->
 
          <!-- faq area -->
@@ -562,21 +561,27 @@
                   <div class="row">
                      <div class="col-lg-12">
                         <div class="eg-faq__wrap">
+                            @foreach ($faq as $faq)
                            <div class="accordion" id="accordionExample">
+
                               <div class="accordion-item">
+
                                 <h2 class="accordion-header">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    What are the key benefits of our supplement?
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$faq->id}}" aria-expanded="false" aria-controls="collapse{{$faq->id}}">
+                                    {{$faq->question}}
                                     <span class="eg-faq__btn"></span>
                                   </button>
                                 </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div id="collapse{{$faq->id}}" class="accordion-collapse collapse {{ $faq->id == 1 ? 'show' : '' }}" data-bs-parent="#accordionExample">
                                   <div class="accordion-body">
-                                    <p>Our supplement is carefully formulated to provide comprehensive support for your health and wellness needs. It combines a unique blend of vitamins, minerals, antioxidants.</p>
+                                    <p>{{$faq->answer}}</p>
                                   </div>
                                 </div>
+
                               </div>
-                              <div class="accordion-item">
+
+
+                              {{-- <div class="accordion-item">
                                 <h2 class="accordion-header">
                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     How does our supplement support overall health and wellness ?
@@ -640,8 +645,9 @@
                                     <p>Our supplement is carefully formulated to provide comprehensive support for your health and wellness needs. It combines a unique blend of vitamins, minerals, antioxidants.</p>
                                   </div>
                                 </div>
-                              </div>
+                              </div> --}}
                             </div>
+                            @endforeach
                         </div>
                      </div>
                   </div>
@@ -750,56 +756,32 @@
                      </div>
                   </div>
                </div>
+
                <div class="row">
-                  <div class="col-lg-4 col-md-6">
-                     <div class="eg-blog__item text-center mb-40">
-                        <div class="eg-blog__thumb w-img">
-                          <a href="blog-details.html"><img src="assets/img/blog/blog-thumb-01.jpg" alt="img"></a>
-                        </div>
-                        <div class="eg-blog__content">
-                           <div class="eg-blog__meta-date">
-                              <span><i class="far fa-clock"></i>12 Days ago</span>
+                  @foreach ($blog->take(3) as $blog)
+                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="eg-blog__item text-center mb-40">
+                           <div class="eg-blog__thumb w-img">
+                              <a href="blog-details.html">
+                                 <img src="/backend/images/blog_posts/{{$blog->blog_image}}" alt="img">
+                              </a>
                            </div>
-                           <h4 class="eg-blog__title"><a href="blog-details.html">hOW MUCH DO EAT YOU REALLY <br> NEED supplements</a></h4>
-                           <div class="eg-blog__meta-name">
-                              <p><span>Post By</span> - Gomez Gavi</p>
-                           </div>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                     <div class="eg-blog__item text-center mb-40">
-                        <div class="eg-blog__thumb w-img b-mask-2">
-                          <a href="blog-details.html"><img src="assets/img/blog/blog-thumb-02.jpg" alt="img"></a>
-                        </div>
-                        <div class="eg-blog__content">
-                           <div class="eg-blog__meta-date">
-                              <span><i class="far fa-clock"></i>12 Days ago</span>
-                           </div>
-                           <h4 class="eg-blog__title"><a href="blog-details.html">The Ultimate Christmas Gift <br> Guide for Car Lovers</a></h4>
-                           <div class="eg-blog__meta-name">
-                              <p><span>Post By</span> - Gomez JR</p>
+                           <div class="eg-blog__content">
+                              <div class="eg-blog__meta-date">
+                                 <span><i class="far fa-clock"></i>{{ $blog->updated_on }}</span>
+                              </div>
+                              <h4 class="eg-blog__title">
+                                 <a href="blog-details.html">{{ $blog->title }}</a>
+                              </h4>
+                              <div class="eg-blog__meta-name">
+                                 <p><span>Post By</span> - {{ $blog->author }}</p>
+                              </div>
                            </div>
                         </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6">
-                     <div class="eg-blog__item text-center mb-40">
-                        <div class="eg-blog__thumb w-img">
-                          <a href="blog-details.html"><img src="assets/img/blog/blog-thumb-03.jpg" alt="img"></a>
-                        </div>
-                        <div class="eg-blog__content">
-                           <div class="eg-blog__meta-date">
-                              <span><i class="far fa-clock"></i>12 Days ago</span>
-                           </div>
-                           <h4 class="eg-blog__title"><a href="blog-details.html">Can breakfast and Nutrition <br> help keep us thin?</a></h4>
-                           <div class="eg-blog__meta-name">
-                              <p><span>Post By</span> - Chris</p>
-                           </div>
-                        </div>
-                      </div>
-                  </div>
+                     </div>
+                  @endforeach
                </div>
+
                <div class="row">
                   <div class="col-12">
                      <div class="eg-blog__arrow text-center">
@@ -823,6 +805,7 @@
                <img class="layer" data-depth="0.3" src="assets/img/blog/blog-shape-2.png" alt="blog-shape">
             </div>
          </section>
+
          <!-- blog area end -->
 
          <!-- instagram area -->

@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Home')
+@section('title', 'shop')
 @section('main-container')
       <!-- header area end -->
 
@@ -18,12 +18,12 @@
                      </div>
                      <div class="eg-breadcrumb__content">
                         <h2 class="title"> Shop</h2>
-                        <nav aria-label="breadcrumb">
+                        {{-- <nav aria-label="breadcrumb">
                            <ol class="eg-breadcrumb__list">
                               <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                               <li class="eg-breadcrumb__item active" aria-current="page">Shop</li>
                            </ol>
-                        </nav>
+                        </nav> --}}
                      </div>
                   </div>
                </div>
@@ -56,7 +56,7 @@
                               <input type="text" placeholder="Keywrord...">
                            </form>
                         </div>
-                        <div class="eg-product__price-range">
+                        {{-- <div class="eg-product__price-range">
                            <h3 class="eg-product__sidebar-title">Price</h3>
                            <div class="eg-product__range-head">
                               <div id="eg-slider__range"></div>
@@ -65,7 +65,7 @@
                                  <input type="submit" value="Filter" id="filter">
                               </div>
                            </div>
-                        </div>
+                        </div> --}}
                         <div class="eg-product__categories">
                            <h3 class="eg-product__sidebar-title">Categories</h3>
                            <ul>
@@ -113,22 +113,16 @@
                         </div>
                      </div>
                      <div class="row">
+                        @foreach ($product as $product)
                         <div class="col-xl-4 col-md-6">
                            <div class="eg-product__item text-center mb-60">
                               <div class="eg-product__thumb">
-                                 <a href="shop-details.html"><img src="assets/img/product/product-1.png" alt="product-thumb"></a>
+                                 <a href="/shop-details{{$product->id}}"><img src="/backend/images/products/{{$product->image}}" alt="product-thumb" width="200px" height="200px"></a>
                               </div>
                               <div class="eg-product__content">
-                                 <h4 class="eg-product__title"><a href="shop-details.html">Protein Powder 2kg</a></h4>
-                                 <span class="eg-product__price">$110.99</span>
-                                 <div class="eg-product__rating">
-                                    <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/rating-star.svg" alt="rating-star"></span>
-                                    <span class="eg-product__rating-count">(38)</span>
-                                 </div>
+                                 <h4 class="eg-product__title"><a href="shop-details.html">{{ $product->title }}</a></h4>
+                                 <span class="eg-product__price">${{ $product->price }}</span>
+
                                  <div class="eg-product__btn d-flex align-items-center justify-content-center">
                                     <a href="cart.html" class="eg-product__cart mr-15">
                                        <span><img src="assets/img/icon/cart.svg" alt=""></span>
@@ -138,7 +132,12 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
+                        @endforeach
+
+
+
+
+                        {{-- <div class="col-xl-4 col-md-6">
                            <div class="eg-product__item text-center mb-60">
                               <div class="eg-product__thumb">
                                  <a href="shop-details.html"><img src="assets/img/product/product-2.png" alt="product-thumb"></a>
@@ -313,7 +312,10 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
+ --}}
+
+
+                        {{-- <div class="col-xl-4 col-md-6">
                            <div class="eg-product__item text-center mb-60">
                               <div class="eg-product__thumb">
                                  <a href="shop-details.html"><img src="assets/img/product/product-3.png" alt="product-thumb"></a>
@@ -337,7 +339,7 @@
                                  </div>
                               </div>
                            </div>
-                        </div>
+                        </div> --}}
                      </div>
                      <div class="eg-postbox__pagination text-center">
                         <nav>

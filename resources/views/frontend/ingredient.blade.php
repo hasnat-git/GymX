@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Home')
+@section('title', 'ingredient')
 @section('main-container')nd -->
 
       <main class="fix">
@@ -17,12 +17,12 @@
                         </div>
                         <div class="eg-breadcrumb__content">
                            <h2 class="title"> ingredient</h2>
-                           <nav aria-label="breadcrumb">
+                           {{-- <nav aria-label="breadcrumb">
                               <ol class="eg-breadcrumb__list">
                                  <li class="eg-breadcrumb__item"><a href="index-2.html">Home</a></li>
                                  <li class="eg-breadcrumb__item active" aria-current="page">ingredient</li>
                               </ol>
-                           </nav>
+                           </nav> --}}
                         </div>
                      </div>
                   </div>
