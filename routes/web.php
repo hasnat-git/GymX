@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\AdminFaqsController;
 use App\Http\Controllers\backend\AdminHomeController;
 use App\Http\Controllers\backend\AdminLoginController;
 use App\Http\Controllers\backend\AdminProjectsController;
+use App\Http\Controllers\backend\AdminTestimonialController;
 use App\Http\Controllers\backend\ProductsController;
 use App\Http\Controllers\backend\TeamMemberController;
 use App\Http\Controllers\frontend\blog_detailsController;
@@ -118,3 +119,15 @@ Route::group(['as' => 'product.', 'prefix' => '/admin/'], function(){
     Route::put('product-edit/{id}', [ProductsController::class, 'updateProduct'])->name('update');
     Route::delete('product-delete/{id}', [ProductsController::class, 'deleteProduct'])->name('delete');
 });
+
+//testimonial module
+
+Route::group(['as' => 'testimonial.', 'prefix' => '/admin/'], function(){
+    Route::get('testimonial', [AdminTestimonialController::class, 'index'])->name('show');
+    Route::get('testimonial-add', [AdminTestimonialController::class, 'addTestimonial'])->name('add');
+    Route::post('testimonial-submit', [AdminTestimonialController::class, 'submitTestimonialRecord'])->name('submit');
+    Route::get('testimonial-edit/{id}', [AdminTestimonialController::class, 'editTestimonial'])->name('edit');
+    Route::put('testimonial-edit/{id}', [AdminTestimonialController::class, 'updateTestimonial'])->name('update');
+    Route::delete('testimonial-delete/{id}', [AdminTestimonialController::class, 'deleteTestimonial'])->name('delete');
+});
+

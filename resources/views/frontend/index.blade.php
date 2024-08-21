@@ -671,44 +671,32 @@
                      <div class="col-lg-12">
                         <div class="swiper-container eg-testimonial__active">
                            <div class="swiper-wrapper">
+                            @foreach ($testimonial as $testimonial)
+
+
+
                               <div class="swiper-slide eg-testimonial__item text-center">
                                  <div class="eg-testimonial__avatar-thumb">
-                                    <img src="assets/img/testimonial/testimonial-thumb-01.png" alt="testimonial-thumb">
+                                    <img src="/backend/images/testimonials/{{$testimonial->image}}" alt="testimonial-thumb">
                                  </div>
                                  <div class="eg-testimonial__avatar-info">
-                                    <h5 class="eg-testimonial__avatar-title">Gomeza Gomedria Lumi</h5>
-                                    <span>Trainer of (Golden Gym)</span>
+                                    <h5 class="eg-testimonial__avatar-title">{{ $testimonial->name }}</h5>
+                                    <span>{{ $testimonial->about }}</span>
                                  </div>
                                  <div class="eg-testimonial__content">
-                                    <p> "I have been using the clean gainer Multivitamin Supplement for several months now, and I am thrilled with the results. Not only has it boosted my energy levels, but it has also improved my overall well-being. I feel more focused, my immune system”</p>
+                                    <p> "{{  $testimonial->statement }} "</p>
                                  </div>
                                  <div class="eg-testimonial__rating">
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                 </div>
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($i <= $testimonial->rate)
+                                            <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
+
+                                        @endif
+                                    @endfor
+                                </div>
                               </div>
-                              <div class="swiper-slide eg-testimonial__item  text-center">
-                                 <div class="eg-testimonial__avatar-thumb">
-                                    <img src="assets/img/testimonial/testimonial-thumb-01.png" alt="testimonial-thumb">
-                                 </div>
-                                 <div class="eg-testimonial__avatar-info">
-                                    <h5 class="eg-testimonial__avatar-title">Gomeza Gomedria Lumi</h5>
-                                    <span>Trainer of (Golden Gym)</span>
-                                 </div>
-                                 <div class="eg-testimonial__content">
-                                    <p> "I have been using the clean gainer Multivitamin Supplement for several months now, and I am thrilled with the results. Not only has it boosted my energy levels, but it has also improved my overall well-being. I feel more focused, my immune system”</p>
-                                 </div>
-                                 <div class="eg-testimonial__rating">
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                    <span><img src="assets/img/icon/star.svg" alt="rating-star"></span>
-                                 </div>
-                              </div>
+                              @endforeach
+
                            </div>
                         </div>
                      </div>

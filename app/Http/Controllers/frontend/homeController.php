@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\frontend\FrontendBlog;
 use App\Models\frontend\FrontendFaq;
 use App\Models\frontend\FrontendShop;
+use App\Models\frontend\Testimonial;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
@@ -15,7 +16,7 @@ class homeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index',['product'=>FrontendShop::get(), 'faq'=>FrontendFaq::get(),'blog'=>FrontendBlog::get()]);
+        return view('frontend.index',['product'=>FrontendShop::get(), 'faq'=>FrontendFaq::get(),'blog'=>FrontendBlog::get(), 'testimonial'=>Testimonial::get()]);
     }
 
     /**

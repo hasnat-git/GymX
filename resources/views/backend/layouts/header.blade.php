@@ -98,6 +98,19 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item {{ Request::is('admin/testimonial', 'admin/testimonial-add') ? 'active':''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTestimonial"
+                    aria-expanded="true" aria-controls="collapseTestimonial">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Testimonial</span>
+                </a>
+                <div id="collapseTestimonial" class="collapse" aria-labelledby="testimonial" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('/admin/testimonial')}}">Testimonial</a>
+                        <a class="collapse-item" href="{{url('/admin/testimonial-add')}}">Add Testimonial</a>
+                    </div>
+                </div>
+            </li>
             <li class="nav-item {{ Request::is('admin/team', 'admin/team-add') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTeam"
                     aria-expanded="true" aria-controls="collapseTeam">

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 500);
             $table->string('about', 500);
             $table->string('statement', 5000);
-            $table->string('rate', 100);
+            $table->integer('rate');
             $table->string('image', 100);
             $table->timestamps();
         });
