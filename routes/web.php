@@ -131,3 +131,4 @@ Route::group(['as' => 'testimonial.', 'prefix' => '/admin/'], function(){
     Route::delete('testimonial-delete/{id}', [AdminTestimonialController::class, 'deleteTestimonial'])->name('delete');
 });
 
+
