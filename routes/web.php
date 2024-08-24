@@ -42,7 +42,7 @@ Route::post('/contact', [contactController::class, 'submitMessage']);
 //backend routes
 
 
-Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.home');
+Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.home')->middleware('check.admin');
 
 //Admin Module
 Route::group(['as' => 'admin.', 'prefix' => '/admin/'], function(){
@@ -51,45 +51,45 @@ Route::group(['as' => 'admin.', 'prefix' => '/admin/'], function(){
     Route::post('login-submit', [AdminLoginController::class, 'onLogin'])->name('submit');
     Route::get('logout', [AdminLoginController::class, 'logoutAdmin'])->name('logout');
     // Registration
-    Route::get('register', [AdminHomeController::class, 'registerAdmin'])->name('add');
-    Route::post('register', [AdminHomeController::class, 'submitAdminRecord'])->name('register');
+    Route::get('register', [AdminHomeController::class, 'registerAdmin'])->name('add')->middleware('check.admin');
+    Route::post('register', [AdminHomeController::class, 'submitAdminRecord'])->name('register')->middleware('check.admin');
     // Admin Management
-    Route::get('admins-list', [AdminHomeController::class, 'showAdminRecord'])->name('show');
-    Route::get('delete/{id}', [AdminHomeController::class, 'deleteAdminRecord'])->name('delete');
-    Route::get('edit/{id}', [AdminHomeController::class, 'editAdminRecord'])->name('edit');
-    Route::put('update/{id}', [AdminHomeController::class, 'updateAdminRecord'])->name('update');
+    Route::get('admins-list', [AdminHomeController::class, 'showAdminRecord'])->name('show')->middleware('check.admin');
+    Route::get('delete/{id}', [AdminHomeController::class, 'deleteAdminRecord'])->name('delete')->middleware('check.admin');
+    Route::get('edit/{id}', [AdminHomeController::class, 'editAdminRecord'])->name('edit')->middleware('check.admin');
+    Route::put('update/{id}', [AdminHomeController::class, 'updateAdminRecord'])->name('update')->middleware('check.admin');
 
 });
 
 // Team Module
 Route::group(['as' => 'team.', 'prefix' => '/admin/'], function(){
-    Route::get('team', [TeamMemberController::class, 'index'])->name('show');
-    Route::get('team-member-details/{id}', [TeamMemberController::class, 'showTeamMember'])->name('details');
-    Route::get('team-add', [TeamMemberController::class, 'registerTeam'])->name('add');
-    Route::post('team-add', [TeamMemberController::class, 'submitTeamRecord']);
-    Route::get('team-edit/{id}', [TeamMemberController::class, 'editTeam'])->name('edit');
-    Route::put('team-edit/{id}', [TeamMemberController::class, 'updateTeam'])->name('update');
-    Route::delete('team-delete/{id}', [TeamMemberController::class, 'deleteTeam'])->name('delete');
+    Route::get('team', [TeamMemberController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('team-member-details/{id}', [TeamMemberController::class, 'showTeamMember'])->name('details')->middleware('check.admin');
+    Route::get('team-add', [TeamMemberController::class, 'registerTeam'])->name('add')->middleware('check.admin');
+    Route::post('team-add', [TeamMemberController::class, 'submitTeamRecord'])->middleware('check.admin');
+    Route::get('team-edit/{id}', [TeamMemberController::class, 'editTeam'])->name('edit')->middleware('check.admin');
+    Route::put('team-edit/{id}', [TeamMemberController::class, 'updateTeam'])->name('update')->middleware('check.admin');
+    Route::delete('team-delete/{id}', [TeamMemberController::class, 'deleteTeam'])->name('delete')->middleware('check.admin');
 });
 
 // FAQs Module
 Route::group(['as' => 'faq.', 'prefix' => '/admin/'], function(){
-    Route::get('faqs', [AdminFaqsController::class, 'index'])->name('show');
-    Route::get('faq-add', [AdminFaqsController::class, 'addFAQ'])->name('add');
-    Route::post('faq-add', [AdminFaqsController::class, 'submitFaqRecord'])->name('submit');
-    Route::get('faq-edit/{id}', [AdminFaqsController::class, 'editFAQ'])->name('edit');
-    Route::put('faq-edit/{id}', [AdminFaqsController::class, 'updateFAQ'])->name('update');
-    Route::delete('faq-delete/{id}', [AdminFaqsController::class, 'deleteFAQ'])->name('delete');
+    Route::get('faqs', [AdminFaqsController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('faq-add', [AdminFaqsController::class, 'addFAQ'])->name('add')->middleware('check.admin');
+    Route::post('faq-add', [AdminFaqsController::class, 'submitFaqRecord'])->name('submit')->middleware('check.admin');
+    Route::get('faq-edit/{id}', [AdminFaqsController::class, 'editFAQ'])->name('edit')->middleware('check.admin');
+    Route::put('faq-edit/{id}', [AdminFaqsController::class, 'updateFAQ'])->name('update')->middleware('check.admin');
+    Route::delete('faq-delete/{id}', [AdminFaqsController::class, 'deleteFAQ'])->name('delete')->middleware('check.admin');
 });
 
 // Project Module
 Route::group(['as' => 'project.', 'prefix' => '/admin/'], function(){
-    Route::get('projects', [AdminProjectsController::class, 'index'])->name('show');
-    Route::get('project-add', [AdminProjectsController::class, 'addProject'])->name('add');
-    Route::post('project-add', [AdminProjectsController::class, 'submitProjectRecord']);
-    Route::get('project-edit/{id}', [AdminProjectsController::class, 'editProject'])->name('edit');
-    Route::put('project-edit/{id}', [AdminProjectsController::class, 'updateProject'])->name('update');
-    Route::delete('project-delete/{id}', [AdminProjectsController::class, 'deleteProject'])->name('delete');
+    Route::get('projects', [AdminProjectsController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('project-add', [AdminProjectsController::class, 'addProject'])->name('add')->middleware('check.admin');
+    Route::post('project-add', [AdminProjectsController::class, 'submitProjectRecord'])->middleware('check.admin');
+    Route::get('project-edit/{id}', [AdminProjectsController::class, 'editProject'])->name('edit')->middleware('check.admin');
+    Route::put('project-edit/{id}', [AdminProjectsController::class, 'updateProject'])->name('update')->middleware('check.admin');
+    Route::delete('project-delete/{id}', [AdminProjectsController::class, 'deleteProject'])->name('delete')->middleware('check.admin');
 });
 
 // Route::get('/admin/blogs', [AdminBlogController::class, 'index'])->name('blogs.show');
@@ -104,31 +104,31 @@ Route::group(['as' => 'project.', 'prefix' => '/admin/'], function(){
 
 // Blog Module
 Route::group(['as' => 'blog.', 'prefix' => '/admin/'], function(){
-    Route::get('blogs', [AdminBlogController::class, 'index'])->name('show');
-    Route::get('blog-add', [AdminBlogController::class, 'addBlog'])->name('add');
-    Route::post('blog-add', [AdminBlogController::class, 'submitRecord'])->name('sumbit');
-    Route::delete('blog-delete/{id}', [AdminBlogController::class, 'deleteRecord'])->name('delete');
+    Route::get('blogs', [AdminBlogController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('blog-add', [AdminBlogController::class, 'addBlog'])->name('add')->middleware('check.admin');
+    Route::post('blog-add', [AdminBlogController::class, 'submitRecord'])->name('sumbit')->middleware('check.admin');
+    Route::delete('blog-delete/{id}', [AdminBlogController::class, 'deleteRecord'])->name('delete')->middleware('check.admin');
 });
 //Products module
 
 Route::group(['as' => 'product.', 'prefix' => '/admin/'], function(){
-    Route::get('product', [ProductsController::class, 'index'])->name('show');
-    Route::get('product-add', [ProductsController::class, 'addProduct'])->name('add');
-    Route::post('product-submit', [ProductsController::class, 'submitProductRecord']);
-    Route::get('product-edit/{id}', [ProductsController::class, 'editProduct'])->name('edit');
-    Route::put('product-edit/{id}', [ProductsController::class, 'updateProduct'])->name('update');
-    Route::delete('product-delete/{id}', [ProductsController::class, 'deleteProduct'])->name('delete');
+    Route::get('product', [ProductsController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('product-add', [ProductsController::class, 'addProduct'])->name('add')->middleware('check.admin');
+    Route::post('product-submit', [ProductsController::class, 'submitProductRecord'])->middleware('check.admin');
+    Route::get('product-edit/{id}', [ProductsController::class, 'editProduct'])->name('edit')->middleware('check.admin');
+    Route::put('product-edit/{id}', [ProductsController::class, 'updateProduct'])->name('update')->middleware('check.admin');
+    Route::delete('product-delete/{id}', [ProductsController::class, 'deleteProduct'])->name('delete')->middleware('check.admin');
 });
 
 //testimonial module
 
 Route::group(['as' => 'testimonial.', 'prefix' => '/admin/'], function(){
-    Route::get('testimonial', [AdminTestimonialController::class, 'index'])->name('show');
-    Route::get('testimonial-add', [AdminTestimonialController::class, 'addTestimonial'])->name('add');
-    Route::post('testimonial-submit', [AdminTestimonialController::class, 'submitTestimonialRecord'])->name('submit');
-    Route::get('testimonial-edit/{id}', [AdminTestimonialController::class, 'editTestimonial'])->name('edit');
-    Route::put('testimonial-edit/{id}', [AdminTestimonialController::class, 'updateTestimonial'])->name('update');
-    Route::delete('testimonial-delete/{id}', [AdminTestimonialController::class, 'deleteTestimonial'])->name('delete');
+    Route::get('testimonial', [AdminTestimonialController::class, 'index'])->name('show')->middleware('check.admin');
+    Route::get('testimonial-add', [AdminTestimonialController::class, 'addTestimonial'])->name('add')->middleware('check.admin');
+    Route::post('testimonial-submit', [AdminTestimonialController::class, 'submitTestimonialRecord'])->name('submit')->middleware('check.admin');
+    Route::get('testimonial-edit/{id}', [AdminTestimonialController::class, 'editTestimonial'])->name('edit')->middleware('check.admin');
+    Route::put('testimonial-edit/{id}', [AdminTestimonialController::class, 'updateTestimonial'])->name('update')->middleware('check.admin');
+    Route::delete('testimonial-delete/{id}', [AdminTestimonialController::class, 'deleteTestimonial'])->name('delete')->middleware('check.admin');
 });
 
 

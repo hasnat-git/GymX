@@ -17,7 +17,11 @@ class PagePasswordMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        echo "testing";
-        return $next($request);
+        if(session()->has('email')){
+            return $next($request);
+        } else{
+            return redirect()->route('admin.login');
+        }
+        // return $next($request);
     }
 }

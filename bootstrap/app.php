@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(PagePasswordMiddleware::class);
+
+        $middleware->alias([
+        'check.admin' => PagePasswordMiddleware::class
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
