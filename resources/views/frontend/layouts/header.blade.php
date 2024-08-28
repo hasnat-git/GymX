@@ -98,20 +98,8 @@
 
                                        <li><a href="/shop">Our Shop</a></li>
                                        <li><a href="/cart">Cart</a></li>
-                                       <li class="eg-menu__has-children">
-                                          <a href="/blog">Blog
-                                             <span>
-                                                {{-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" x="0" y="0" viewBox="0 0 24 24" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
-                                                   <g> <path fill="current" d="M5.97 8.47a.75.75 0 0 1 1.06 0l5.47 5.47 5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 0-1.06z" data-original="current"></path> </g>
-                                                </svg> --}}
-                                             </span>
-                                          </a>
-                                          {{-- <ul class="sub-menu">
-                                             <li><a href="/blog">Our Blog</a></li>
-                                             <li><a href="/blog-details">Blog Details</a></li>
-                                          </ul> --}}
-                                       </li>
-                                       <li class="eg-menu__header-btn"> <a href="/contact">Get in touch</a></li>
+                                       <li class="eg-menu__has-children"> <a href="/blog">Blog</a></li>
+                                       <li class="eg-menu__has-children"> <a href="/contact">contact</a></li>
                                     </ul>
                                  </div>
                               </div>

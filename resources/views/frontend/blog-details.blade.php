@@ -356,17 +356,16 @@
                      <div class="offset-lg-1 col-lg-4">
                         <div class="eg-footer__widget mb-35">
                            <div class="eg-footer__widget_link eg-line">
-                              <a href="shop.html">product</a>
-                              <a href="#">Pricing Plan</a>
-                              <a href="contact.html">Contact</a>
+                              <a href="/shop">product</a>
+                              <a href="/contact">Contact</a>
                            </div>
                         </div>
                      </div>
                      <div class="col-lg-2">
                         <div class="eg-footer__widget text-center mb-35">
-                           <div class="eg-footer__widget_logo">
-                              <a href="index-2.html"><img src="assets/img/logo/logo.png" alt="logo"></a>
-                           </div>
+                           {{-- <div class="eg-footer__widget_logo">
+                              <a href="index-2.html"><img src="assets/img/logo/logo5.png" alt="logo"></a>
+                           </div> --}}
                         </div>
                      </div>
                      <div class="col-lg-4">
@@ -388,7 +387,7 @@
                      <div class="row">
                         <div class="offset-lg-1 col-lg-5">
                            <div class="eg-footer__copyright mb-30">
-                              <span>© Copyrights, 2023 <a href="https://themeforest.net/user/eaglesthemes" target="_blank">EaglesThemes</a>. All Right Recived</span>
+                              <span>© Copyrights, 2023 <a href="" target="_blank">GymX</a>. All Right Recived</span>
                            </div>
                         </div>
                         <div class="col-lg-5">
@@ -401,7 +400,11 @@
                   </div>
                </div>
             </div>
-            <h4 class="eg-footer__opacity-text d-none d-lg-block">Stay With Us</h4>
+            <h5 class="eg-footer__opacity-text d-none d-lg-block" style="font-size: 170px;">Stay With Us</h5>
+
+
+
+
             <div class="eg-footer__shape-1">
                <img class="layer" data-depth="0.3" src="assets/img/shape/footer-shape-02.png" alt="footer-shape">
             </div>
