@@ -13,7 +13,8 @@ class blogController extends Controller
      */
     public function index()
     {
-        return view('frontend.blog',['blog'=>FrontendBlog::get()]);
+        $blog = FrontendBlog::paginate(2);
+        return view('frontend.blog',['blogs'=>$blog]);
     }
 
     /**

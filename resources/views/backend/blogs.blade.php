@@ -28,8 +28,8 @@
                                 @foreach ($blog as $blog)
                                 <tr>
                                     <td>{{ $blog->id }}</td>
-                                    <td>{{ $blog->title }}</td>
-                                    <td>{{ $blog->details }}</td>
+                                    <td>{{ Str::limit($blog->title), 50 }}...</td>
+                                    <td>{{ Str::limit($blog->details), 50 }}</td>
                                     <td>{{ $blog->author }}</td>
                                     <td>{{ $blog->updated_on }}</td>
                                     <td>

@@ -52,7 +52,7 @@
                <div class="row justify-content-center">
                   <div class="col-lg-8">
                      <div class="eg-postbox__wrapper">
-                        @foreach ($blog as $blog)
+                        @foreach ($blogs as $blog)
 
 
                         <article class="eg-postbox__item text-center mb-60">
@@ -254,7 +254,7 @@
                            </div>
                         </article> --}}
                      </div>
-                     <div class="eg-postbox__pagination mb-60 text-center">
+                     {{-- <div class="eg-postbox__pagination mb-60 text-center">
                         <nav>
                            <ul>
                               <li>
@@ -266,9 +266,9 @@
                                     </span>
                                  </a>
                               </li>
-                              <li> <a href="#">1</a> </li>
-                              <li> <span class="current">2</span> </li>
-                              <li> <a href="#">3</a> </li>
+
+                                {{ $blogs->links() }}
+
                               <li>
                                  <a href="#">
                                     <span>
@@ -280,6 +280,9 @@
                               </li>
                            </ul>
                         </nav>
+                     </div> --}}
+                     <div class="col-lg-12 mt-4 pagination">
+                        {{ $blogs->links('pagination::bootstrap-4') }}
                      </div>
                   </div>
                   {{-- <div class="col-lg-4 col-md-10">
@@ -411,6 +414,32 @@
       </section>
       <!-- blog-end -->
    </main>
+   <style>
+     .pagination {
+      display: flex;
+      justify-content: center; /* Centers the pagination */
+      margin-top: 20px;
+   }
+
+   .pagination .page-item .page-link {
+      color: red; /* Change link color to red */
+      padding: 10px 15px;
+      border: 1px solid red;
+      border-radius: 5px;
+      text-decoration: none;
+   }
+
+   .pagination .page-item .page-link:hover {
+      background-color: red;
+      color: #fff;
+   }
+
+   .pagination .page-item.active .page-link {
+      background-color: red;
+      border-color: red;
+      color: #fff;
+   }
+   </style>
 
 
    <!-- footer area -->
