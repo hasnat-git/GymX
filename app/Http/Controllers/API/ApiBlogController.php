@@ -12,6 +12,13 @@ class ApiBlogController extends Controller
         // print_r('Hello World');
         return response()->json(['posts'=>Blogs::get()]);
     }
+    public function showSinglePost($id){
+
+        $blog = Blogs::where('id', $id)->first();
+
+        return response()->json(['post'=>$blog]);
+
+    }
 
     public function submitPost(Request $request)
     {
@@ -36,13 +43,15 @@ class ApiBlogController extends Controller
             $blogs->updated_on = $request->date;
             $blogs->author_image = $request->author_image;
             $blogs->blog_image = $request->blog_image;
-            // $blogs->status = $BLOG_STATUS;
-            $blogs->save();
+            $blogs->status = $BLOG_STATUS;
+
 
             return response()->json([
                 'message' => 'Post Submitted Successfully',
-                'status' => '200'
+                'status' => '200',
+
             ]);
+             $blogs->save();
     }
 
     public function updateRecord(Request $request, $id)

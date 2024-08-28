@@ -1,5 +1,51 @@
 @extends('backend.layouts.main')
 @section('title', 'Home')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+     <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+          ]);
+
+          var options = {
+            title: 'Company Projects',
+            pieHole: 0.4,
+          };
+          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+          chart.draw(data, options);
+        }
+      </script>
 {{-- @section('home', 'active') --}}
 @section('main-container')
             <div class="container-fluid">
@@ -163,10 +209,17 @@
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Company Projects</h6>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
+
+
+                            <div class="card-body" >
+
+                                <div id="piechart" style="width: 600px; height: 400px;"></div>
+
+                                {{-- <div class="chart-pie pt-4 pb-2">
+
+
                                     <canvas id="pieChartTotalProject"></canvas>
-                                </div>
+                                </div> --}}
                                 <div class="mt-4 text-center small">
                                     <span class="mr-2">
                                         <i class="fas fa-circle text-primary"></i> Development
@@ -191,9 +244,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Other Stats</h6>
                             </div>
                             <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="pieChartOtherProject"></canvas>
-                                </div>
+                                <div id="donutchart" style="height: 400px;"></div>
                                 <div class="mt-4 text-center small">
                                     <span class="mr-2">
                                         <i class="fas fa-circle text-primary"></i> Team Members
