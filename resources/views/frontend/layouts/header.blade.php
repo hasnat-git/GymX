@@ -114,7 +114,7 @@
                                           </a>
                                        </li>
                                        <li class="eg-menu__header-user user-2">
-                                          <a href="login.html">
+
                                              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="20" height="20" x="0" y="0" viewBox="0 0 32 32" style="enable-background: new 0 0 512 512" xml:space="preserve" class="">
                                                 <g> <path d="M16 1c-4.415 0-8 3.585-8 8s3.585 8 8 8 8-3.585 8-8-3.585-8-8-8zm0 2c3.311 0 6 2.689 6 6s-2.689 6-6 6-6-2.689-6-6 2.689-6 6-6zM31 27.49a5.003 5.003 0 0 0-1.523-3.595l-.005-.005C27.518 22.026 23.264 19 16 19c-7.266 0-11.52 3.027-13.469 4.896l-.004.004a4.996 4.996 0 0 0-1.522 3.58C1 27.646 1 27.823 1 28c0 .796.316 1.559.879 2.121A2.996 2.996 0 0 0 4 31h24c.796 0 1.559-.316 2.121-.879A2.996 2.996 0 0 0 31 28zm-2-.001V28a.997.997 0 0 1-1 1H4a.997.997 0 0 1-1-1l.005-.51c0-.811.329-1.588.912-2.152C5.665 23.663 9.493 21 16 21s10.335 2.663 12.088 4.334c.583.566.912 1.343.912 2.155z" fill="current" data-original="#000000"></path> </g>
                                              </svg>
@@ -123,10 +123,11 @@
                                                    <g> <path fill="current" d="M5.97 8.47a.75.75 0 0 1 1.06 0l5.47 5.47 5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-1.06 0l-6-6a.75.75 0 0 1 0-1.06z" data-original="#000000"></path> </g>
                                                 </svg>
                                              </span>
-                                          </a>
+
                                           <ul class="eg-menu__signUp">
                                              <li> <a href="/login">Login</a> </li>
                                              <li> <a href="/register">Singup</a></li>
+                                             <li> <a href="{{ route('user.logout') }}">logout</a></li>
                                           </ul>
                                        </li>
                                        <li class="eg-menu__header-offCanvas-btn offCanvas-btn-2 d-none d-xl-block">

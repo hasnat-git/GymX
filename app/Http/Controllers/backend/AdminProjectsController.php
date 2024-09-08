@@ -10,14 +10,20 @@ class AdminProjectsController extends Controller
 {
     public function index()
     {
+
         // Assume middleware handles authentication
-        return view('backend.projects', ['project' => Projects::get()]);
+        $project= Projects::get();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('project', 'FullName');
+        return view('backend.projects')->with($data);
     }
 
     public function addProject()
     {
         // Assume middleware handles authentication
-        return view('backend.project-add');
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact( 'FullName');
+        return view('backend.project-add')->with($data);
     }
 
     public function submitProjectRecord(Request $request)
@@ -56,8 +62,10 @@ class AdminProjectsController extends Controller
     public function editProject($id)
     {
         // Assume middleware handles authentication
-        $projects = Projects::where('id', $id)->first();
-        return view('backend.project-edit', ['project' => $projects]);
+        $project = Projects::where('id', $id)->first();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('project', 'FullName');
+        return view('backend.project-edit')->with($data);
     }
 
     public function updateProject(Request $request, $id)

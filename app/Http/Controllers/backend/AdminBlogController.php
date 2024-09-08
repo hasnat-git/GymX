@@ -11,13 +11,18 @@ class AdminBlogController extends Controller
     public function index()
     {
         // No session check here; assume middleware handles authentication
-        return view('backend.blogs', ['blog' => Blogs::get()]);
+        $FullName = session('first_name') . " " . session('last_name');
+        $blog = Blogs::get();
+        $data = compact('blog', 'FullName');
+        return view('backend.blogs')->with($data);
     }
 
     public function addBlog()
     {
         // No session check here; assume middleware handles authentication
-        return view('backend.blog-add');
+        $FullName = session('first_name') . " " . session('last_name');
+        $data = compact( 'FullName');
+        return view('backend.blog-add')->with($data);
     }
 
     public function submitRecord(Request $request)
@@ -57,8 +62,10 @@ class AdminBlogController extends Controller
     public function editRecord($id)
     {
         // No session check here; assume middleware handles authentication
+        $FullName = session('first_name') . " " . session('last_name');
         $blog = Blogs::where('id', $id)->first();
-        return view('backend.blog-edit', ['blog' => $blog]);
+        $data = compact('blog', 'FullName');
+        return view('backend.blog-edit')->with($data);
     }
 
     public function updateRecord(Request $request, $id)

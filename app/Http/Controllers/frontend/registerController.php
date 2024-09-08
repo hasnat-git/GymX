@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class registerController extends Controller
@@ -18,9 +19,24 @@ class registerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function RegisterUser(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'email|required|unique:users,email',
+                'password' => 'required'
+            ]
+        );
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect('/register')->with('success', 'Signup Success, Now you can login to your account');
+
+
     }
 
     /**

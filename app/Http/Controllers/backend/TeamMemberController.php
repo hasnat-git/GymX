@@ -11,13 +11,18 @@ class TeamMemberController extends Controller
     public function index()
     {
         // Assume middleware handles authentication
-        return view('backend.team', ['team' => Team::get()]);
+        $team = Team::get();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('team', 'FullName');
+        return view('backend.team')->with($data);
     }
 
     public function registerTeam()
     {
         // Assume middleware handles authentication
-        return view('backend.team-add');
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('FullName');
+        return view('backend.team-add')->with($data);
     }
 
     public function submitTeamRecord(Request $request)
@@ -63,7 +68,9 @@ class TeamMemberController extends Controller
     {
         // Assume middleware handles authentication
         $team = Team::where('id', $id)->first();
-        return view('backend.team-edit', ['team' => $team]);
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('team', 'FullName');
+        return view('backend.team-edit')->with($data);
     }
 
     public function updateTeam(Request $request, $id)

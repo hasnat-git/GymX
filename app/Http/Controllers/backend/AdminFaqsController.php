@@ -11,13 +11,18 @@ class AdminFaqsController extends Controller
     public function index()
     {
         // Assume middleware handles authentication
-        return view('backend.faq', ['faqs' => FAQs::get()]);
+        $faqs= FAQs::get();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('faqs', 'FullName');
+        return view('backend.faq')->with($data);
     }
 
     public function addFAQ()
     {
         // Assume middleware handles authentication
-        return view('backend.faq-add');
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact( 'FullName');
+        return view('backend.faq-add')->with($data);
     }
 
     public function submitFaqRecord(Request $request)
@@ -43,8 +48,12 @@ class AdminFaqsController extends Controller
     public function editFAQ($id)
     {
         // Assume middleware handles authentication
+        $FullName=  session('first_name') . " " . session('last_name');
         $faqs = FAQs::where('id', $id)->first();
-        return view('backend.faq-edit', ['faqs' => $faqs]);
+        $data= compact('faqs', 'FullName');
+
+
+        return view('backend.faq-edit')->with($data);
     }
 
     public function updateFAQ(Request $request, $id)

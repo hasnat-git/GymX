@@ -38,10 +38,16 @@ Route::get('/shop-details{id}', [shop_detailsController :: class, 'index']);
 Route::get('/shop', [shopController :: class, 'index']);
 
 Route::post('/contact', [contactController::class, 'submitMessage']);
+Route::post('/register', [registerController::class, 'RegisterUser'])->name('user.register');
+
+//user login module
+Route::group(['as' => 'user.', 'prefix' => '/'],function(){
+    Route::get('login', [loginController :: class, 'index'])->name('login');
+    Route::post('login-submit', [loginController::class, 'onLogin'])->name('submit');
+    Route::get('logout', [loginController::class, 'logoutUser'])->name('logout');
+});
 
 //backend routes
-
-
 Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin.home')->middleware('check.admin');
 
 //Admin Module
@@ -107,6 +113,8 @@ Route::group(['as' => 'blog.', 'prefix' => '/admin/'], function(){
     Route::get('blogs', [AdminBlogController::class, 'index'])->name('show')->middleware('check.admin');
     Route::get('blog-add', [AdminBlogController::class, 'addBlog'])->name('add')->middleware('check.admin');
     Route::post('blog-add', [AdminBlogController::class, 'submitRecord'])->name('sumbit')->middleware('check.admin');
+    Route::get('blog-edit/{id}', [AdminBlogController::class, 'editRecord'])->name('edit');
+    Route::put('blog-edit/{id}', [AdminBlogController::class, 'updateRecord'])->name('update');
     Route::delete('blog-delete/{id}', [AdminBlogController::class, 'deleteRecord'])->name('delete')->middleware('check.admin');
 });
 //Products module
@@ -130,5 +138,6 @@ Route::group(['as' => 'testimonial.', 'prefix' => '/admin/'], function(){
     Route::put('testimonial-edit/{id}', [AdminTestimonialController::class, 'updateTestimonial'])->name('update')->middleware('check.admin');
     Route::delete('testimonial-delete/{id}', [AdminTestimonialController::class, 'deleteTestimonial'])->name('delete')->middleware('check.admin');
 });
+
 
 

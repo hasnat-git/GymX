@@ -34,13 +34,13 @@
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
                      <div class="eg-product__item text-center">
                         <div class="eg-product__thumb">
-                           <a href="/shop-details/{{$product->id}}">
+                           <a href="/shop-details{{$product->id}}">
                               <img src="/backend/images/products/{{$product->image}}" alt="product-thumb" class="product-img">
                            </a>
                         </div>
                         <div class="eg-product__content">
                            <h4 class="eg-product__title">
-                              <a href="/shop-details/{{$product->id}}">{{ $product->title }}</a>
+                              <a href="/shop-details{{$product->id}}">{{ $product->title }}</a>
                            </h4>
                            <span class="eg-product__price">${{ $product->price }}</span>
                            <div class="eg-product__btn d-flex align-items-center justify-content-center">

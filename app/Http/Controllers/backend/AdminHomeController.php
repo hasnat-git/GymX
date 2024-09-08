@@ -39,7 +39,8 @@ class AdminHomeController extends Controller
         // $data = compact('url');
         // return view('backend.admin-add')->with($data);
         // if(session()->has('email')){
-            return view('backend.admin-add');
+            $FullName = session('first_name') . " " . session('last_name');
+            return view('backend.admin-add', compact('FullName'));
         // } else {
         //     return redirect()->route('admin.login');
         // }
@@ -68,6 +69,7 @@ class AdminHomeController extends Controller
             $admin->status = 1;
             $admin->save();
             // return redirect('/admin/admins-list');
+
             return redirect()->route('admin.show');
         // } else {
         //     return redirect()->route('admin.login');
@@ -77,7 +79,7 @@ class AdminHomeController extends Controller
     public function showAdminRecord()
     {
         // if(session()->has('email')){
-            $admins = Admins::all();
+            // $admins = Admins::all();
             // Calling the helper function for testing data
             // testData($admins);
 
@@ -86,8 +88,13 @@ class AdminHomeController extends Controller
             //    echo  "</pre>";
             //     die;
 
-            $data = compact('admins');
-            return view('backend/admins-list')->with($data);
+            // $data = compact('admins');
+            // return view('backend/admins-list')->with($data);
+            $FullName = session('first_name') . " " . session('last_name');
+            $admins = Admins::get();
+            $data =  compact('admins', 'FullName');
+
+            return view('backend.admins-list')->with($data);
         // } else {
         //     return redirect()->route('admin.login');
         // }
@@ -108,8 +115,10 @@ class AdminHomeController extends Controller
     {
         // dd($id);
         // if(session()->has('email')){
-            $data = Admins::where('id', $id)->first();
-            return view('backend.admin-edit', ['admin' => $data]);
+            $FullName = session('first_name') . " " . session('last_name');
+            $admin = Admins::where('id', $id)->first();
+            $data = compact('admin', 'FullName');
+            return view('backend.admin-edit')->with($data);
 
             // $data  = Admins::find($id);
             // if(is_null($data)){

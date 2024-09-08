@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\backend\AdminTestimonial;
+use App\Models\frontend\Testimonial;
 use Illuminate\Http\Request;
 
 class AdminTestimonialController extends Controller
@@ -14,13 +15,19 @@ class AdminTestimonialController extends Controller
     public function index()
     {
         // Assume middleware handles authentication
-        return view('backend.testimonial', ['testimonial' => AdminTestimonial::get()]);
+        $testimonial= AdminTestimonial::get();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('testimonial', 'FullName');
+        return view('backend.testimonial')->with($data);
     }
 
     public function addTestimonial()
     {
         // Assume middleware handles authentication
-        return view('backend.testimonial-add');
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact( 'FullName');
+
+        return view('backend.testimonial-add')->with($data);
     }
 
     public function submitTestimonialRecord(Request $request)
@@ -54,7 +61,9 @@ class AdminTestimonialController extends Controller
     {
         // Assume middleware handles authentication
         $testimonial = AdminTestimonial::where('id', $id)->first();
-        return view('backend.testimonial-edit', ['testimonial' => $testimonial]);
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('testimonial', 'FullName');
+        return view('backend.testimonial-edit')->with($data);
     }
 
     public function updateTestimonial(Request $request, $id)

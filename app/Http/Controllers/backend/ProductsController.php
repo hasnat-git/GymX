@@ -14,7 +14,10 @@ class ProductsController extends Controller
     public function index()
     {
         // Assume middleware handles authentication
-        return view('backend.products', ['product' => Product::get()]);
+        $product=Product::get();
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('product', 'FullName');
+        return view('backend.products')->with($data);
     }
 
     /**
@@ -23,7 +26,12 @@ class ProductsController extends Controller
     public function addProduct()
     {
         // Assume middleware handles authentication
-        return view('backend.products-add');
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('FullName');
+
+
+
+        return view('backend.products-add')->with($data);
     }
 
     public function submitProductRecord(Request $request)
@@ -61,7 +69,9 @@ class ProductsController extends Controller
     {
         // Assume middleware handles authentication
         $product = Product::where('id', $id)->first();
-        return view('backend.products-edit', ['product' => $product]);
+        $FullName=  session('first_name') . " " . session('last_name');
+        $data= compact('product', 'FullName');
+        return view('backend.products-edit')->with($data);
     }
 
     public function updateProduct(Request $request, $id)
