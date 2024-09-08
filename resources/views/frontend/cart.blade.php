@@ -191,7 +191,7 @@
                            <span>$734</span>
                         </div>
                         <div class="eg-cart-checkout__proceed">
-                           <a href="checkout.html" class="eg-cart-checkout__btn eg-btn w-100">Proceed to Checkout</a>
+                           <a href="/checkout" class="eg-cart-checkout__btn eg-btn w-100">Proceed to Checkout</a>
                         </div>
                      </div>
                   </div>

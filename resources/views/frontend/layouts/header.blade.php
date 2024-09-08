@@ -148,7 +148,7 @@
                         <nav class="eg-mobile__menu-box">
                            <div class="eg-mobile__menu-top d-flex justify-content-between align-items-center">
                               <div class="eg-mobile__logo">
-                                 <a href="/"><img src="assets/img/logo/logo-3.png" alt="logo"></a>
+                                 <a href="/"><img src="assets/img/logo/logo5.png" alt="logo"></a>
                               </div>
                               <div class="eg-mobile__close-btn">
                                  <i class="fas fa-times"></i>

@@ -47,7 +47,7 @@
                               <a href="cart.html" class="eg-product__cart mr-15">
                                  <span><img src="assets/img/icon/cart.svg" alt=""></span>
                               </a>
-                              <a class="eg-btn" href="#">Buy Now</a>
+                              <a class="eg-btn" href="/shop-details{{$product->id}}">Buy Now</a>
                            </div>
                         </div>
                      </div>
