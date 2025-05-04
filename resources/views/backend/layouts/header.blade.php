@@ -55,24 +55,37 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('/admin/register')}}">Add an Admin</a>
                         <a class="collapse-item" href="{{url('/admin/admins-list')}}">Admin List</a>
-                        <a class="collapse-item" href="{{url('/admin/password-reset')}}">Rest Password</a>
+                        <a class="collapse-item" href="{{url('/admin/app-users')}}">App Users</a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item {{ Request::is('admin/blogs', 'admin/blog-add') ? 'active' : ''}}">
+            <li class="nav-item {{ Request::is('admin/trainer', 'admin/trainer-add') ? 'active':''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
+                    aria-expanded="true" aria-controls="collapseProjects">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Trainer Management</span>
+                </a>
+                <div id="collapseProjects" class="collapse" aria-labelledby="projects" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('/admin/trainer')}}">Trainer</a>
+                        <a class="collapse-item" href="{{url('/admin/trainer-add')}}">Add Trainer</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item {{ Request::is('admin/subscriptionplan', 'admin/subscriptionplan-add') ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlogs"
                     aria-expanded="true" aria-controls="collapseBlogs">
                     <i class="fas fa-fw fa-file"></i>
-                    <span>Blog Management</span>
+                    <span>Subscription Management</span>
                 </a>
                 <div id="collapseBlogs" class="collapse" aria-labelledby="blogs" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('/admin/blogs')}}">Blog Posts</a>
-                        <a class="collapse-item" href="{{url('/admin/blog-add')}}">Add Blog Post</a>
+                        <a class="collapse-item" href="{{url('/admin/subscriptionplan')}}">Subscription Plans</a>
+                        <a class="collapse-item" href="{{url('/admin/subscriptionplan-add')}}">Add Subscription Plan  </a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item {{ Request::is('admin/projects', 'admin/project-add') ? 'active':''}}">
+            {{-- <li class="nav-item {{ Request::is('admin/projects', 'admin/project-add') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
                     aria-expanded="true" aria-controls="collapseProjects">
                     <i class="fas fa-fw fa-file"></i>
@@ -84,7 +97,7 @@
                         <a class="collapse-item" href="{{url('/admin/project-add')}}">Add Project</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
             <li class="nav-item {{ Request::is('admin/product', 'admin/product-add') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
                     aria-expanded="true" aria-controls="collapseProduct">
